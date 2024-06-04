@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:leapstartai/compitative.dart';
-import 'package:leapstartai/knowMarket.dart';
 import 'package:leapstartai/path_to_MVP.dart';
 import 'package:glass_kit/glass_kit.dart';
 import 'package:leapstartai/state.dart';
@@ -533,6 +532,7 @@ Scaffold(
                         fit: BoxFit.contain,
                       ),
                     ),
+                    //what you can improve
                     Positioned(
                       left: 36,
                       top: 270,
@@ -560,6 +560,7 @@ Scaffold(
                         fit: BoxFit.contain,
                       ),
                     ),
+                    //.....
                     Positioned(
                       left: 1086,
                       top: 339,
@@ -823,6 +824,7 @@ Scaffold(
                         ),
                       ),
                     ),
+                    //
                     Positioned(
                       left: 36,
                       top: 1062,
@@ -831,7 +833,7 @@ Scaffold(
                         child: 
 GestureDetector(
   onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=> knowMarket()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=> knowMore()));
 
   },
 child:
@@ -858,6 +860,8 @@ child:
                         fit: BoxFit.contain,
                       ),
                     ),
+
+                    //investeres
                     Positioned(
                       left: 36,
                       top: 1152,
