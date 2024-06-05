@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:leapstartai/compitative.dart';
+import 'package:leapstartai/dataclass/dataclass.dart';
 import 'package:leapstartai/path_to_MVP.dart';
 import 'package:glass_kit/glass_kit.dart';
 import 'package:leapstartai/state.dart';
+import 'package:leapstartai/state/state.dart';
 
-class Dashboard extends StatelessWidget {
+class Dashboard extends ConsumerWidget {
   const Dashboard({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context , WidgetRef ref) {
+
     return 
 Scaffold(
   body:
@@ -1220,24 +1224,40 @@ child:
                         ),
                       ),
                     ),
-                    Positioned(
-                      left: 51,
-                      top: 2005,
-                      child: SizedBox(
-                        width: 441,
-                        height: 161,
-                        child: Text(
-                          'Shadowfax Technologies\nDelhivery\nEcom Express',
-                          style: GoogleFonts.getFont(
-                            'Poppins',
-                            color: const Color(0xFF6E6E6E),
-                            fontSize: 24,
-                            fontWeight: FontWeight.w500,
-                            height: 2.1,
-                          ),
-                        ),
-                      ),
-                    ),
+                  BlocBuilder<CompetitorAnalysisCubit, Competitors?>(
+  builder: (context, state) {
+    if (state != null) {
+      // Use ListView.builder to display the list
+      return ListView.builder(
+        itemCount: state.listOfIndirectComp.length,
+        itemBuilder: (context, index) {
+          return Positioned(
+            left: 51,
+            top: 2005 + index * 161,
+            child: SizedBox(
+              width: 441,
+              height: 161,
+              child: Text(
+                state.listOfIndirectComp[index],
+                style: GoogleFonts.getFont(
+                  'Poppins',
+                  color: const Color(0xFF6E6E6E),
+                  fontSize: 24,
+                  fontWeight: FontWeight.w500,
+                  height: 2.1,
+                ),
+              ),
+            ),
+          );
+        },
+      );
+    } else {
+      // You can return a loading indicator or any other widget
+      return CircularProgressIndicator();
+    }
+  },
+),
+
                    context.read<knowMoreCubit>().state == true ? 
                       Positioned(
                       left: 36,
