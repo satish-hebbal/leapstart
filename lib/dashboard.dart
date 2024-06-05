@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:leapstartai/compitative.dart';
 import 'package:leapstartai/dataclass/dataclass.dart';
@@ -9,11 +8,11 @@ import 'package:glass_kit/glass_kit.dart';
 import 'package:leapstartai/state.dart';
 import 'package:leapstartai/state/state.dart';
 
-class Dashboard extends ConsumerWidget {
-  const Dashboard({super.key});
+class Dashboard extends StatelessWidget{
+
 
   @override
-  Widget build(BuildContext context , WidgetRef ref) {
+  Widget build(BuildContext context) {
 
     return 
 Scaffold(

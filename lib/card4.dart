@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:leapstartai/dashboard2.dart';
-import 'package:leapstartai/state/river.dart';
+import 'package:leapstartai/repo/repo.dart';
+import 'package:leapstartai/state/state.dart';
 
 class Card4 extends StatefulWidget {
   const Card4({super.key});
@@ -27,7 +28,9 @@ class _Card1State extends State<Card4> {
   @override
   Widget build(BuildContext context) {
     return 
-    
+     BlocProvider<CompetitorAnalysisCubit>(
+      create: (context) => CompetitorAnalysisCubit(),
+    child:
 
     Scaffold(
       body: SingleChildScrollView(
@@ -181,10 +184,8 @@ class _Card1State extends State<Card4> {
                                 print('Start Up Name: ${_startUpNameController.text}');
                                 print('Industry: ${_industryController.text}');
   // Get the instance of CompetitorAnalysisCubit from the context
-  final competitorAnalysisCubit = context.read<CompetitorAnalysisCubit>();
 
   // Call the fetchCompetitorAnalysis function
-  await competitorAnalysisCubit.fetchCompetitorAnalysis("Edtech");
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=> const Dashboard2()));
 
                               },
@@ -270,6 +271,6 @@ class _Card1State extends State<Card4> {
           ),
         ),
       ),
-    );
+    ));
   }
 }

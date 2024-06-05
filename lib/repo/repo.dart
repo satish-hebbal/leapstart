@@ -90,9 +90,9 @@ class Repository {
   }
 
   Future<Competitors> fetchCompetitorAnalysis(String marketNiche) async {
+    print("wait....");
     final response = await http.post(
-      Uri.parse('$apiUrl/analyze_competitors'),
-      body: jsonEncode({'market_niche': marketNiche}),
+      Uri.parse('$apiUrl/analyze_competitors?market_niche=$marketNiche'),
       headers: {'Content-Type': 'application/json'},
     );
     print('Fetching market strategy...' + response.body.toString());
